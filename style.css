@@ -10,7 +10,6 @@ body {
     #CCFFFF,
     #CCFFCC
   );
-  background-color: #0099CC;
   color: white;
 }
 
@@ -118,6 +117,7 @@ h1 {
   font-variant-caps: small-caps;
   border: none;
   text-align: center;
+  margin: 10%;
 }
 
 #stopButton {
@@ -132,11 +132,12 @@ h1 {
   height: 50px;
   font-variant-caps: small-caps;
   text-align: center;
+  margin: 10%;
 }
 
 #beginButtonArea {
-  width: 50%;
-  margin: 0 auto;
+  width: 80%;
+  margin: auto;
   text-align: center;
 }
 
@@ -150,7 +151,33 @@ h1 {
   border-radius: 50%;
 }
 
+#countdown {
+  color: red;
+  positioon: relative;
+  font-family: "Orbitron", sans-serif;
+  display: inline-block;
+  margin-right: 20%;
+  font-size: 4em;
+  width: 10%;
+  text-shadow: 2px 2px black;
+}
+
+#guesses {
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  display: inline-block;
+  position: relative;
+  margin-left: 20%;
+  font-size: 4em;
+  width: 10%;
+  text-shadow: 2px 2px black;
+}
 /* Defined Classes */
+
+.game-over {
+  background-image: linear-gradient(to bottom right, red, red, red, red);
+  opacity: 0;
+}
 
 .hidden {
   display: none;

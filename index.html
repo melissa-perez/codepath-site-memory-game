@@ -22,6 +22,10 @@
       href="https://fonts.googleapis.com/css2?family=Nova+Flat&family=Pacifico&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
@@ -31,16 +35,17 @@
 
     <h3 id="memoryGameInstructions">
       <span>&#10024;</span>
-      Welcome traveler. Try your best to copy the light's pattern.
+      Welcome traveler. Try your best to copy the light's pattern. You have two
+      chances to fix your mistakes.
       <span>&#10024;</span>
     </h3>
 
     <div id="beginButtonArea">
+      <div id="countdown">15</div>
       <button id="startButton" onclick="startGame()">Start</button>
       <button id="stopButton" class="hidden" onclick="stopGame()">Stop</button>
+      <div id="guesses">0</div>
     </div>
-
-    <div id="countdown"></div>
 
     <div class="container">
       <div id="gameBoard">
@@ -110,5 +115,10 @@
         ></button>
       </div>
     </div>
+    <audio
+      crossorigin="anonymous"
+      src="https://cdn.glitch.com/380714cc-2eab-49d5-930a-ace0ead9c470%2Ferror.mp3?v=1616640761798"
+      id="error_audio"
+    ></audio>
   </body>
 </html>
