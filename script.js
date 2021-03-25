@@ -16,6 +16,7 @@ let guessCounter = null;
 let tonePlaying = false;
 let volume = 0.5; //must be between 0.0 and 1.0
 let playerMistakes = null;
+let guessWrong = false;
 
 //Page Initialization
 
@@ -36,7 +37,11 @@ function playSingleClue(btn) {
 
 function playClueSequence() {
   guessCounter = 0;
+  timeLeft = 15;
+  document.getElementById("countdown").innerHTML = timeLeft;
+
   let delay = nextClueWaitTime; //set delay to initial wait time
+
   for (let i = 0; i <= progress; i++) {
     // for each clue that is revealed so far
     clueHoldTime -= 25;
@@ -45,18 +50,35 @@ function playClueSequence() {
     delay += cluePauseTime;
   }
 
-  timeLeft = 15;
-  let guessTimer = setInterval(function() {
-    if (timeLeft <= 0) {
-            clearInterval(guessTimer);
+  /*for (let i = 0; i <= progress; i++) {
+    // for each clue that is revealed so far
 
-      document.getElementById("countdown").innerHTML = "Finished";
-    } else {
-      document.getElementById("countdown").innerHTML =
-        timeLeft + " seconds remaining";
+    setTimeout(playSingleClue, delay, pattern[i]); // set a timeout to play that clue
+
+    if (progress === guessCounter && progress > 0) {
+      clueHoldTime -= 25;
+      delay += clueHoldTime;
+      delay += cluePauseTime;
     }
-    timeLeft -= 1;
-  }, 1000);
+  }
+  */
+
+  // could not get the timer to work correctly
+  /*let timers = setTimeout(function guessTimer() {
+    let range = setInterval(function() {
+      if (timeLeft <= 0) {
+        document.getElementById("countdown").innerHTML = 0;
+        clearInterval(range);
+
+        
+      } else {
+        console.log("inside:" + delay);
+        console.log("inside:" + timeLeft);
+        document.getElementById("countdown").innerHTML = timeLeft;
+      }
+      timeLeft -= 1;
+    }, 1000);
+  }, delay);*/
 }
 
 function playSound(btn) {
@@ -77,6 +99,7 @@ function startGame() {
   playerMistakes = 0;
   gamePlaying = true;
   fillPatternArray();
+  document.getElementById("guesses").innerHTML = playerMistakes;
 
   // swap the Start and Stop buttons
   document.getElementById("startButton").classList.add("hidden");
@@ -88,7 +111,8 @@ function stopGame() {
   //set game variables to end game state
   gamePlaying = false;
   pattern = [];
-
+  document.getElementById("guesses").innerHTML = 0;
+  document.getElementById("countdown").innerHTML = 15;
   // swap the Start and Stop buttons
   document.getElementById("startButton").classList.remove("hidden");
   document.getElementById("stopButton").classList.add("hidden");
@@ -96,6 +120,8 @@ function stopGame() {
 
 function loseGame() {
   stopGame();
+  let audio = new Audio(document.getElementById("error_audio").src);
+  audio.play();
   alert("Game Over. You lost.");
 }
 
@@ -124,6 +150,18 @@ function guess(btn) {
   } else {
     if (playerMistakes < 2) {
       ++playerMistakes;
+      document.getElementById("guesses").innerHTML = playerMistakes;
+
+      document.querySelector("body").classList.add("game-over");
+      setTimeout(function() {
+        document.querySelector("body").classList.remove("game-over"), 3000;
+        let audio = new Audio(document.getElementById("error_audio").src);
+        audio.play();
+      });
+
+      if (guessCounter < pattern.length - 1) {
+        playClueSequence();
+      }
     } else {
       loseGame();
     }
