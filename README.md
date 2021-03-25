@@ -40,7 +40,10 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-![](your-link-here)
+<img src="memory-game.gif"/>
+<img src="memory-game2.gif"/>
+<img src="memory-game3.gif"/>
+
 
 ## Reflection Questions
 
