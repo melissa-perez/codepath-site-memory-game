@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Super-Fast Light Game!</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nova+Flat&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <h1 id="memoryGameTitle">Super-Fast Light Memory Game!</h1>
+
+    <h3 id="memoryGameInstructions">
+      <span>&#10024;</span>
+      Welcome traveler. Try your best to copy the light's pattern.
+      <span>&#10024;</span>
+    </h3>
+
+    <div id="beginButtonArea">
+      <button id="startButton" onclick="startGame()">Start</button>
+      <button id="stopButton" class="hidden" onclick="stopGame()">Stop</button>
+    </div>
+
+    <div id="countdown"></div>
+
+    <div class="container">
+      <div id="gameBoard">
+        <audio
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/380714cc-2eab-49d5-930a-ace0ead9c470%2Frecharge.mp3?v=1616496960265"
+          id="button5_audio"
+        ></audio>
+        <button
+          id="button5"
+          class="button"
+          onclick="guess(5)"
+          onmousedown="playSound(5)"
+          onmouseup="pauseSound(5)"
+        ></button>
+
+        <audio
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/380714cc-2eab-49d5-930a-ace0ead9c470%2Fswoosh.mp3?v=1616483569471"
+          id="button3_audio"
+        ></audio>
+        <button
+          id="button3"
+          class="button"
+          onclick="guess(3)"
+          onmousedown="playSound(3)"
+          onmouseup="pauseSound(3)"
+        ></button>
+
+        <audio
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/380714cc-2eab-49d5-930a-ace0ead9c470%2Fscore.mp3?v=1616483565826"
+          id="button1_audio"
+        ></audio>
+        <button
+          id="button1"
+          class="button"
+          onclick="guess(1)"
+          onmousedown="playSound(1)"
+          onmouseup="pauseSound(1)"
+        ></button>
+
+        <audio
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/380714cc-2eab-49d5-930a-ace0ead9c470%2Fcoin.mp3?v=1616484696650"
+          id="button2_audio"
+        ></audio>
+        <button
+          id="button2"
+          class="button"
+          onclick="guess(2)"
+          onmousedown="playSound(2)"
+          onmouseup="pauseSound(2)"
+        ></button>
+
+        <audio
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/380714cc-2eab-49d5-930a-ace0ead9c470%2Fretro.mp3?v=1616483564126"
+          id="button4_audio"
+        ></audio>
+        <button
+          id="button4"
+          class="button"
+          onclick="guess(4)"
+          onmousedown="playSound(4)"
+          onmouseup="pauseSound(4)"
+        ></button>
+      </div>
+    </div>
+  </body>
+</html>
